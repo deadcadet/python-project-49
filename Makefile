@@ -18,3 +18,9 @@ reinstall:
 
 lint:
 	poetry run flake8 brain_games
+
+test:
+	make build
+	make publish
+	make reinstall
+	brain-even
