@@ -3,7 +3,7 @@ import prompt
 
 
 # Common functions:
-def play_game(game_type, get_question):
+def play_game(game_type):
     name = welcome_user()
     right_answer_count = 0
     get_rules(game_type)
@@ -13,7 +13,7 @@ def play_game(game_type, get_question):
     }
     input_func = input_functions.get(game_type)
     while right_answer_count < 3:
-        correct_answer = get_question()
+        correct_answer = get_question(game_type)
         user_answer = input_func('Your answer: ')
         if is_answer_right(user_answer, correct_answer):
             right_answer_count += 1
@@ -22,6 +22,17 @@ def play_game(game_type, get_question):
             break
     if right_answer_count == 3:
         game_win(name)
+
+
+def get_question(game_type):
+    if game_type == 'calc':
+        expression, correct_answer = generate_random_expression()
+        print(f"Question: {expression}")
+    if game_type == 'even':
+        random_number = get_random_number(1, 100)
+        print(f"Question: {random_number}")
+        correct_answer = 'yes' if is_even(random_number) else 'no'
+    return correct_answer
 
 
 def welcome_user():
@@ -70,19 +81,6 @@ def generate_random_expression():
     return expression, result
 
 
-def get_question_calc():
-    expression, result = generate_random_expression()
-    print(f"Question: {expression}")
-    return result
-
-
 # Functions for EVEN game:
 def is_even(number):
     return True if number % 2 == 0 else False
-
-
-def get_question_even():
-    random_number = get_random_number(1, 100)
-    print(f"Question: {random_number}")
-    correct_answer = 'yes' if is_even(random_number) else 'no'
-    return correct_answer
