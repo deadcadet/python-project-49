@@ -12,7 +12,8 @@ def play_game(game_type):
     input_functions = {
         'even': prompt.string,
         'calc': prompt.integer,
-        'gcd': prompt.integer
+        'gcd': prompt.integer,
+        'progression': prompt.integer
     }
     input_func = input_functions.get(game_type)
     while right_answer_count < 3:
@@ -40,6 +41,9 @@ def get_question(game_type):
         num2 = get_random_number(1, 100)
         print(f"Question: {num1} {num2}")
         correct_answer = math.gcd(num1, num2)
+    if game_type == 'progression':
+        progression, correct_answer = generate_progression()
+        print(f"Question: {show(progression)}")
     return correct_answer
 
 
@@ -54,7 +58,8 @@ def get_rules(game_type):
     games = {
         'even': 'Answer "yes" if the number is even, otherwise answer "no".',
         'calc': 'What is the result of the expression?',
-        'gcd': 'Find the greatest common divisor of given numbers.'
+        'gcd': 'Find the greatest common divisor of given numbers.',
+        'progression': 'What number is missing in the progression?'
     }
     print(games[game_type])
 
@@ -93,3 +98,22 @@ def generate_random_expression():
 # Functions for EVEN game:
 def is_even(number):
     return True if number % 2 == 0 else False
+
+
+# Functions for PROGRESSION game:
+def generate_progression():
+    start = random.randint(1, 100)
+    step = random.randint(1, 10)
+    length = random.randint(5, 15)
+    progression = [start + step * i for i in range(length)]
+    index_to_find = random.randint(0, length - 1)
+    correct_answer = progression[index_to_find]
+    progression[index_to_find] = '..'
+    return progression, correct_answer
+
+
+def show(progression):
+    prog = ''
+    for i in range(0, len(progression)):
+        prog = prog + str(progression[i]) + ' '
+    return prog

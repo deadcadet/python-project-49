@@ -17,3 +17,6 @@ brain-even demonstration:
 
 brain-gcd demonstration:
 [![asciicast](https://asciinema.org/a/26r0VBJT4PNEbLhLx1kpq4kNP.svg)](https://asciinema.org/a/26r0VBJT4PNEbLhLx1kpq4kNP)
+
+brain-progression demonstration:
+[![asciicast](https://asciinema.org/a/7rYjQsQq8GKivya3l0wcp6o19.svg)](https://asciinema.org/a/7rYjQsQq8GKivya3l0wcp6o19)
