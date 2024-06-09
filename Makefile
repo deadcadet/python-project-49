@@ -23,4 +23,3 @@ test:
 	make build
 	make publish
 	make reinstall
-	brain-calc

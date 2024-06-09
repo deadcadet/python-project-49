@@ -14,3 +14,6 @@ brain-calc demonstration:
 
 brain-even demonstration:
 [![asciicast](https://asciinema.org/a/8wN2BA2AhKYLCsoYcNVydOuyp.svg)](https://asciinema.org/a/8wN2BA2AhKYLCsoYcNVydOuyp)
+
+brain-gcd demonstration:
+[![asciicast](https://asciinema.org/a/26r0VBJT4PNEbLhLx1kpq4kNP.svg)](https://asciinema.org/a/26r0VBJT4PNEbLhLx1kpq4kNP)

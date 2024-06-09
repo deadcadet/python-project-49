@@ -1,15 +1,18 @@
 import random
 import prompt
-
+import math
 
 # Common functions:
+
+
 def play_game(game_type):
     name = welcome_user()
     right_answer_count = 0
     get_rules(game_type)
     input_functions = {
         'even': prompt.string,
-        'calc': prompt.integer
+        'calc': prompt.integer,
+        'gcd': prompt.integer
     }
     input_func = input_functions.get(game_type)
     while right_answer_count < 3:
@@ -32,6 +35,11 @@ def get_question(game_type):
         random_number = get_random_number(1, 100)
         print(f"Question: {random_number}")
         correct_answer = 'yes' if is_even(random_number) else 'no'
+    if game_type == 'gcd':
+        num1 = get_random_number(1, 100)
+        num2 = get_random_number(1, 100)
+        print(f"Question: {num1} {num2}")
+        correct_answer = math.gcd(num1, num2)
     return correct_answer
 
 
@@ -45,7 +53,8 @@ def welcome_user():
 def get_rules(game_type):
     games = {
         'even': 'Answer "yes" if the number is even, otherwise answer "no".',
-        'calc': 'What is the result of the expression?'
+        'calc': 'What is the result of the expression?',
+        'gcd': 'Find the greatest common divisor of given numbers.'
     }
     print(games[game_type])
 
@@ -66,8 +75,8 @@ def game_win(name):
     print(f'Congratulations, {name}!')
 
 
-def get_random_number(a, b):
-    return random.randint(a, b)
+def get_random_number(min_value, max_value):
+    return random.randint(min_value, max_value)
 
 
 # Functions for CALC game:
