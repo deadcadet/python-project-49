@@ -13,7 +13,8 @@ def play_game(game_type):
         'even': prompt.string,
         'calc': prompt.integer,
         'gcd': prompt.integer,
-        'progression': prompt.integer
+        'progression': prompt.integer,
+        'prime': prompt.string
     }
     input_func = input_functions.get(game_type)
     while right_answer_count < 3:
@@ -44,6 +45,10 @@ def get_question(game_type):
     if game_type == 'progression':
         progression, correct_answer = generate_progression()
         print(f"Question: {show(progression)}")
+    if game_type == 'prime':
+        random_number = get_random_number(1, 100)
+        print(f"Question: {random_number}")
+        correct_answer = 'yes' if is_prime(random_number) else 'no'
     return correct_answer
 
 
@@ -59,7 +64,8 @@ def get_rules(game_type):
         'even': 'Answer "yes" if the number is even, otherwise answer "no".',
         'calc': 'What is the result of the expression?',
         'gcd': 'Find the greatest common divisor of given numbers.',
-        'progression': 'What number is missing in the progression?'
+        'progression': 'What number is missing in the progression?',
+        'prime': 'Answer "yes" if given number is prime. Otherwise answer "no".'
     }
     print(games[game_type])
 
@@ -117,3 +123,19 @@ def show(progression):
     for i in range(0, len(progression)):
         prog = prog + str(progression[i]) + ' '
     return prog
+
+
+# Functions for PRIME game:
+def is_prime(number):
+    if number == 1:
+        return False
+    if number == 2 and number == 3:
+        return True
+    if number % 2 == 0 or number % 3 == 0:
+        return False
+    i = 5
+    while i * i <= number:
+        if number % i == 0 or number % (i + 2) == 0:
+            return False
+        i += 6
+    return True

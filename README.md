@@ -20,3 +20,6 @@ brain-gcd demonstration:
 
 brain-progression demonstration:
 [![asciicast](https://asciinema.org/a/7rYjQsQq8GKivya3l0wcp6o19.svg)](https://asciinema.org/a/7rYjQsQq8GKivya3l0wcp6o19)
+
+brain-prime demonstration:
+[![asciicast](https://asciinema.org/a/9yPCyED2oibpO8yy1BabDGfCV.svg)](https://asciinema.org/a/9yPCyED2oibpO8yy1BabDGfCV)
